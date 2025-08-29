@@ -1,15 +1,15 @@
-import Header from "@/components/Header";
+import FoodieHeader from "@/components/FoodieHeader";
 import HeroSection from "@/components/HeroSection";
+import CategorySection from "@/components/CategorySection";
 import FeaturedSection from "@/components/FeaturedSection";
-import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <Header />
+      <FoodieHeader />
       <HeroSection />
+      <CategorySection />
       <FeaturedSection />
-      <Footer />
     </div>
   );
 };

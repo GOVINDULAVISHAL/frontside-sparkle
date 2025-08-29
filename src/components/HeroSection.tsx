@@ -36,6 +36,7 @@ const HeroSection = () => {
           {/* CTA Button */}
           <Button 
             size="lg"
+            onClick={() => document.getElementById('browse-categories')?.scrollIntoView({ behavior: 'smooth' })}
             className="bg-white text-primary hover:bg-white/90 px-8 py-6 text-xl font-semibold group transition-smooth"
           >
             Order Now

@@ -25,7 +25,7 @@ const CategorySection = () => {
   ];
 
   return (
-    <section className="py-16 bg-background">
+    <section id="browse-categories" className="py-16 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">

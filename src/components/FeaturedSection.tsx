@@ -1,30 +1,38 @@
 import { Star } from "lucide-react";
+import pizzaImage from "@/assets/pizza-category.jpg";
+import burgerImage from "@/assets/burger-category.jpg";
+import pastaImage from "@/assets/pasta-featured.jpg";
+import dessertImage from "@/assets/dessert-featured.jpg";
 
 const FeaturedSection = () => {
   const featuredDishes = [
     {
       name: "Margherita Pizza",
       rating: 4.8,
-      description: "Fresh mozzarella, tomatoes, basil leaves, and olive oil on...",
-      image: "/placeholder.svg"
+      description: "Fresh mozzarella, tomatoes, basil leaves, and olive oil on crispy dough",
+      image: pizzaImage,
+      price: "$18.99"
     },
     {
       name: "Classic Cheeseburger", 
       rating: 4.6,
-      description: "Juicy beef patty with cheddar",
-      image: "/placeholder.svg"
+      description: "Juicy beef patty with cheddar cheese, lettuce, tomato, and special sauce",
+      image: burgerImage,
+      price: "$15.99"
     },
     {
-      name: "Rainbow Buddha Bowl",
+      name: "Creamy Pasta Delight",
       rating: 4.9,
-      description: "Quinoa, avocado, roasted",
-      image: "/placeholder.svg"
+      description: "Rich and creamy pasta with fresh herbs and parmesan cheese",
+      image: pastaImage,
+      price: "$22.99"
     },
     {
-      name: "Sushi Combo Deluxe",
+      name: "Chocolate Berry Dessert",
       rating: 4.7,
-      description: "8 pieces of premium nigiri with",
-      image: "/placeholder.svg"
+      description: "Decadent chocolate dessert topped with fresh seasonal berries",
+      image: dessertImage,
+      price: "$12.99"
     }
   ];
 
@@ -49,8 +57,12 @@ const FeaturedSection = () => {
               className="bg-card rounded-2xl overflow-hidden shadow-sm hover:shadow-medium transition-smooth group"
             >
               {/* Image */}
-              <div className="aspect-square relative overflow-hidden bg-gradient-to-br from-primary/20 to-primary-glow/20">
-                <div className="absolute inset-0 bg-muted/20" />
+              <div className="aspect-square relative overflow-hidden">
+                <img 
+                  src={dish.image} 
+                  alt={dish.name}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-smooth"
+                />
               </div>
               
               {/* Content */}
@@ -64,9 +76,15 @@ const FeaturedSection = () => {
                     <span className="text-sm font-semibold">{dish.rating}</span>
                   </div>
                 </div>
-                <p className="text-muted-foreground text-sm">
+                <p className="text-muted-foreground text-sm mb-3">
                   {dish.description}
                 </p>
+                <div className="flex items-center justify-between">
+                  <span className="text-2xl font-bold text-primary">{dish.price}</span>
+                  <button className="bg-primary text-primary-foreground px-4 py-2 rounded-lg font-semibold hover:bg-primary/90 transition-smooth">
+                    Add to Cart
+                  </button>
+                </div>
               </div>
             </div>
           ))}

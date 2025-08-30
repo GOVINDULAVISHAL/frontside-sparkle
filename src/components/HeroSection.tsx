@@ -29,9 +29,25 @@ const HeroSection = () => {
 
           {/* Subtitle */}
           <p className="text-xl sm:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Order from your favorite restaurants and get fresh, hot meals delivered to
-            your doorstep in 30 minutes or less.
+            "When hunger calls, we deliver perfection. Fresh, hot, and irresistible meals
+            crafted with love and delivered with lightning speed!"
           </p>
+
+          {/* Stats Section */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-12 max-w-2xl mx-auto">
+            <div className="text-center">
+              <div className="text-3xl sm:text-4xl font-bold text-white mb-2">30min</div>
+              <div className="text-white/80 text-lg">Delivery Time</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl sm:text-4xl font-bold text-white mb-2">500+</div>
+              <div className="text-white/80 text-lg">Menu Items</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl sm:text-4xl font-bold text-white mb-2">50k+</div>
+              <div className="text-white/80 text-lg">Happy Users</div>
+            </div>
+          </div>
 
           {/* CTA Button */}
           <Button 

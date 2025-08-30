@@ -1,6 +1,5 @@
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Search, User, ShoppingCart } from "lucide-react";
+import { User, ShoppingCart } from "lucide-react";
 
 const FoodieHeader = () => {
   return (
@@ -14,15 +13,8 @@ const FoodieHeader = () => {
             </h1>
           </div>
 
-          {/* Search Bar */}
-          <div className="flex-1 max-w-2xl mx-8 relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
-            <Input 
-              type="text" 
-              placeholder="Search for restaurants, dishes..."
-              className="pl-12 h-12 bg-muted/50 border-border/50 focus:border-primary"
-            />
-          </div>
+          {/* Spacer */}
+          <div className="flex-1"></div>
 
           {/* Action Icons */}
           <div className="flex items-center space-x-4">

@@ -1,28 +1,36 @@
 // Category Section Component
+import pizzaImage from "@/assets/pizza-category.jpg";
+import burgerImage from "@/assets/burger-category.jpg";
+import healthyImage from "@/assets/healthy-category.jpg";
+import sushiImage from "@/assets/sushi-category.jpg";
 
 const CategorySection = () => {
   const categories = [
     {
       name: "Pizza",
       dishes: "45 dishes",
-      image: "/placeholder.svg"
+      image: pizzaImage
     },
     {
       name: "Burgers", 
       dishes: "32 dishes",
-      image: "/placeholder.svg"
+      image: burgerImage
     },
     {
       name: "Healthy",
       dishes: "28 dishes", 
-      image: "/placeholder.svg"
+      image: healthyImage
     },
     {
       name: "Sushi",
       dishes: "21 dishes",
-      image: "/placeholder.svg"
+      image: sushiImage
     }
   ];
+
+  const handleCategoryClick = (categoryName: string) => {
+    alert(`${categoryName} category clicked! This would navigate to ${categoryName.toLowerCase()} menu.`);
+  };
 
   return (
     <section id="browse-categories" className="py-16 bg-background">
@@ -43,9 +51,13 @@ const CategorySection = () => {
             <div 
               key={index}
               className="relative group cursor-pointer overflow-hidden rounded-2xl h-80 transition-smooth hover:scale-105"
+              onClick={() => handleCategoryClick(category.name)}
             >
               {/* Background Image */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/80 to-primary-glow/60" />
+              <div 
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: `url(${category.image})` }}
+              />
               
               {/* Overlay */}
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-smooth" />

@@ -29,7 +29,7 @@ const CategorySection = () => {
   ];
 
   const handleCategoryClick = (categoryName: string) => {
-    alert(`${categoryName} category clicked! This would navigate to ${categoryName.toLowerCase()} menu.`);
+    window.location.href = `/category/${categoryName.toLowerCase()}`;
   };
 
   return (

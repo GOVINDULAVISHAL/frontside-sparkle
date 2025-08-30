@@ -1,40 +1,64 @@
-import { Star } from "lucide-react";
+import { Star, ShoppingCart } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useCartStore } from "@/store/cartStore";
+import { useToast } from "@/hooks/use-toast";
 import pizzaImage from "@/assets/pizza-category.jpg";
 import burgerImage from "@/assets/burger-category.jpg";
 import pastaImage from "@/assets/pasta-featured.jpg";
 import dessertImage from "@/assets/dessert-featured.jpg";
 
 const FeaturedSection = () => {
+  const addItem = useCartStore((state) => state.addItem);
+  const { toast } = useToast();
+
   const featuredDishes = [
     {
+      id: "featured-pizza",
       name: "Margherita Pizza",
       rating: 4.8,
       description: "Fresh mozzarella, tomatoes, basil leaves, and olive oil on crispy dough",
       image: pizzaImage,
-      price: "$18.99"
+      price: 18.99
     },
     {
+      id: "featured-burger",
       name: "Classic Cheeseburger", 
       rating: 4.6,
       description: "Juicy beef patty with cheddar cheese, lettuce, tomato, and special sauce",
       image: burgerImage,
-      price: "$15.99"
+      price: 15.99
     },
     {
+      id: "featured-pasta",
       name: "Creamy Pasta Delight",
       rating: 4.9,
       description: "Rich and creamy pasta with fresh herbs and parmesan cheese",
       image: pastaImage,
-      price: "$22.99"
+      price: 22.99
     },
     {
+      id: "featured-dessert",
       name: "Chocolate Berry Dessert",
       rating: 4.7,
       description: "Decadent chocolate dessert topped with fresh seasonal berries",
       image: dessertImage,
-      price: "$12.99"
+      price: 12.99
     }
   ];
+
+  const handleAddToCart = (dish: any) => {
+    addItem({
+      id: dish.id,
+      name: dish.name,
+      price: dish.price,
+      image: dish.image
+    });
+    
+    toast({
+      title: "Added to cart!",
+      description: `${dish.name} has been added to your cart.`,
+    });
+  };
 
   return (
     <section className="py-16 bg-muted/30">
@@ -80,10 +104,14 @@ const FeaturedSection = () => {
                   {dish.description}
                 </p>
                 <div className="flex items-center justify-between">
-                  <span className="text-2xl font-bold text-primary">{dish.price}</span>
-                  <button className="bg-primary text-primary-foreground px-4 py-2 rounded-lg font-semibold hover:bg-primary/90 transition-smooth">
+                  <span className="text-2xl font-bold text-primary">${dish.price}</span>
+                  <Button 
+                    onClick={() => handleAddToCart(dish)}
+                    className="bg-primary text-primary-foreground hover:bg-primary/90 transition-smooth"
+                  >
+                    <ShoppingCart className="w-4 h-4 mr-2" />
                     Add to Cart
-                  </button>
+                  </Button>
                 </div>
               </div>
             </div>
